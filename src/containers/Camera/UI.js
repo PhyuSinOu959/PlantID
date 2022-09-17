@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Button } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Clipboard } from "react-native";
 import { RNCamera } from "react-native-camera";
 
 export default class CameraUI extends React.Component {
@@ -43,7 +43,6 @@ export default class CameraUI extends React.Component {
           <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
           <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> SNAP </Text>
-            <Button></Button>
           </TouchableOpacity>
         </View>
       </View>

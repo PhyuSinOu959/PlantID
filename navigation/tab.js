@@ -13,7 +13,8 @@ const Tabs = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: '#e91e63',
-                tabBarShowLabel: false,
+                tabBarShowLabel: false, 
+                // tabBarActiveBackgroundColor: "#032845",
                 tabBarStyle: {
                     position: 'absolute',
                     bottom: 25,
@@ -29,12 +30,12 @@ const Tabs = () => {
                 name="home" 
                 component={HomeScreen} 
                 options= {{
-                    tabBarIcon: () => (<Icon name="home" size={30} color="#900" />)
+                    tabBarIcon: () => (<Icon name="home" size={30} color="#900" />),
                 }}>  
             </Tab.Screen>
             <Tab.Screen 
                 name="camera" 
-                component={RNCamera} 
+                component={RNCamera}
                 options= {{
                     tabBarIcon: () => (<Icon name="camera" size={30} color="#900" />)
                 }}>  
