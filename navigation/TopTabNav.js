@@ -27,8 +27,8 @@ const TopTabNav = () => {
             screenOptions={{
                 headerShown: false,
                 tabBarScrollEnabled: true, 
-                tabBarActiveTintColor: 'grey',
-                tabBarPressColor:'pink',
+                tabBarActiveTintColor: 'green',
+                tabBarPressColor:'grey',
                 tabBarLabelStyle: { fontSize: 12 },
                 // tabBarItemStyle: { width: 110 },
                 tabBarIndicatorStyle: {
@@ -36,7 +36,7 @@ const TopTabNav = () => {
                     // height: 2,   
                 },
             }}
-            sceneContainerStyle={{ backgroundColor: "#68BBE3" }}
+            sceneContainerStyle={{ backgroundColor: "#B6E2D3" }}
         >
             <Tab.Screen 
                 name="Home" 

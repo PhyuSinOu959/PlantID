@@ -4,6 +4,7 @@ import HomeScreen from "../screens/HomeScreen";
 import SearchScreen from "../screens/SearchScreen";
 import My_Garden from '../screens/My_Garden';
 import RNCamera from "../src/containers/Camera";
+import AddPhoto from "../src/containers/AddPhoto";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
@@ -37,7 +38,7 @@ export default function HomeTabScreen() {
             </Tab.Screen>
             <Tab.Screen 
                 name="camera" 
-                component={RNCamera}
+                component={AddPhoto}
                 options= {{
                     tabBarIcon: (props) => (<Icon name="camera" size={30} style={{ color: props.color}} />)
                 }}>  
@@ -53,6 +54,14 @@ export default function HomeTabScreen() {
                 name="Garden" 
                 component={My_Garden} 
                 options= {{
+                    // headerShown: true,
+                    // title: 'My Garden',
+                    // headerTitleAlign: 'center',
+                    // headerTitleStyle: {
+                    //         fontWeight: 'bold',
+                    //         fontSize: 20,
+                    //         color: 'black',
+                    //     },
                     tabBarIcon: (props) => (<Icon name="pagelines" size={30} style={{ color: props.color}} />),
                 }}>  
             </Tab.Screen>
