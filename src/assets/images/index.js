@@ -8,4 +8,5 @@ export default{
     suu: require('./suu.jpeg'),
     cactusPlant: require('./cactusPlant.jpeg'),
     profile: require('./Profile.png'),
+    trashbin_white: require('./trashbin_white.png'),
 }

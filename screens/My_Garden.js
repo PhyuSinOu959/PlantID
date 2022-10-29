@@ -1,46 +1,47 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Image, Button, TouchableOpacity, FlatList, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Image, Button, TouchableOpacity} from "react-native";
 import images from "../src/assets/images";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import ImageList from "./ImageList";
+import {launchImageLibrary} from 'react-native-image-picker';
+// import MyCollections from "./myCollections";
+
 
 export default function My_Garden() {
   const [count, setCount] = useState(0);
   const [isOriginal, setIsOriginal] = useState(true);
   const [buttonText, setButtonText] = useState('Follow');
-  const [fav, setFav] = useState(true);
+  
   const [plantCount, setPlantCount] = useState(ImageList.length);
 
   const navigation = useNavigation();
+
   const handleClick = () => {
     { isOriginal ? setButtonText('Following') & setCount((c) => c + 1) & setIsOriginal(false) : setButtonText('Follow') & setCount((c) => c - 1) & setIsOriginal(true) }
   }
 
-  const iconChange = () => {
-    { fav ? setFav(false) : setFav(true) }
+  const AddPhotos = () => {
+    var options = {
+        storageOptions: {
+          skipBackup: true,
+          path: 'images',
+        },
+      };
 
-  }
-
-  const renderItem = item => {
-    return (
-      <TouchableOpacity>
-        <View style={styles.rendercontainer}>
-          <View style={styles.iconContainer}>
-            <TouchableOpacity  onPress={iconChange}>
-            {fav ? <Icon name="heart-o" size={13} color="#900" /> :
-              <Icon name="heart" size={13} color="#900"/>}
-            </TouchableOpacity>
-          </View>
-          <Image source={item.item.imageUri} style={styles.lstImage} />
-
-          <Text style={styles.lstText}>{item.item.name}</Text>
-        </View>
-      </TouchableOpacity>
-
-    );
-  }
-
+      launchImageLibrary(options,res => {
+            console.log('Response = ', res);
+            if (res.didCancel) {
+              console.log('User cancelled image picker');
+            } else if (res.error) {
+              console.log('ImagePicker Error: ', res.error);
+            } else {
+                const source = { uri: res.uri };
+                console.log(source)
+          }
+        }); 
+    }
+    
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -71,28 +72,15 @@ export default function My_Garden() {
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Text style={{ fontSize: 20, color: 'black' }}>My babe plants</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('camera')}>
+        <TouchableOpacity onPress={AddPhotos}>
           <View style={styles.button}>
             <Icon name="plus" size={24} color="black" />
           </View>
         </TouchableOpacity>
       </View>
-      <ScrollView
-        nestedScrollEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-        style={styles.lstContainer}>
-        <FlatList
-          data={ImageList}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={renderItem}
-          numColumns={2}
-        />
-      </ScrollView>
+     
+      
     </View>
-
-
-
   )
 }
 
@@ -153,35 +141,6 @@ const styles = StyleSheet.create({
     // marginBottom: 10,
     height: 100,
     // backgroundColor: 'orange'
-
-  },
-  rendercontainer: {
-    flexDirection: 'column',
-    // alignItems: 'center',
-    paddingHorizontal: 30,
-    paddingVertical: 12,
-    borderRadius: 25,
-    margin: 3,
-    marginHorizontal: 20,
-    backgroundColor: '#FFFFFF',
-  },
-  iconContainer: {
-    // backgroundColor: 'blue',
-    alignItems: "flex-end"
-  },
-  lstText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: 'black'
-  },
-  lstImage: {
-    height: 80,
-    width: 80,
-    backgroundColor: '#FFFFFF',
-    resizeMode: 'contain',
-    // backgroundColor: 'blue',
   },
 
 })

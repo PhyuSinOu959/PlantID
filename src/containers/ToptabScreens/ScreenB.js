@@ -14,7 +14,6 @@ export default function ScreenB() {
   }
 
   const deleteTask = (deleteIndex) => {
-    console.log("ou", "deleteIndex", deleteIndex);
     setTasks(tasks.filter((value, index) => index != deleteIndex));
   }
 

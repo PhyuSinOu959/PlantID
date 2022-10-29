@@ -5,42 +5,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import ModalAlertLoading from '../src/components/ModalAlertLoading';
 import ImageList from "./ImageList";
 
-// const listData = [
-//     {
-//         id: 1,
-//         imageUri: images.plant,
-//         name: 'Cactus',
-//         color:"#87CEEB",
-//     },
-//     {
-//         id: 2,
-//         imageUri: images.plant,
-//         name: 'Haworthia',
-//         color:"#4682B4",
-//     },
-//     {
-//         id: 3,
-//         imageUri: images.plant,
-//         name: 'Echeveria',
-//         color:"#008080",
-//     },
-//     {
-//         id: 4,
-//         imageUri: images.plant,
-//         name: 'Euphorbia',
-//         color:"#191970",
-//     },
-//     {
-//         id: 5,
-//         imageUri: images.plant,
-//         name: 'Aloe',
-//         color:"#FF4500",
-//     }
-// ]
-
 
 export default function HomeScreen({ navigation }){
-    // const [visible, setVisible] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
     // const [count, setCount] = React.useState(0);
 
@@ -48,7 +14,7 @@ export default function HomeScreen({ navigation }){
         // setModalVisible(true);
         Alert.alert('Function Called...') ;  
     }
-
+    
     const renderItem= item =>{
         return( 
         <TouchableOpacity onPress={()=>navigation.navigate('Details')} >
@@ -77,7 +43,7 @@ export default function HomeScreen({ navigation }){
     //   }, [navigation]);
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             {/* <View style={styles.searchContainer}>
             <TouchableOpacity  style={styles.search}>
             <Icon name="search" size={20} color="#900" />
@@ -95,10 +61,8 @@ export default function HomeScreen({ navigation }){
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={renderItem}
             />
-          
-           
             <ModalAlertLoading visible={modalVisible}/>
-        </ScrollView>
+        </View>
     )
 }
 
