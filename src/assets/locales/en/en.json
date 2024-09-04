@@ -1,0 +1,13 @@
+{
+    "translation": {
+        "hello": "Hello",
+        "this line is translated": "This line is translated",
+        "waterToday": "Water Today",
+        "plants": "Plants",
+        "friends": "Friends",
+        "followers": "Followers",
+        "todoList": "Todo lists",
+        "welcome": "Welcome ",
+        "plantToday": ".. Let's plant together ",
+    }
+}

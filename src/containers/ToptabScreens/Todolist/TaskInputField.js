@@ -17,7 +17,7 @@ export default function TaskInputField(props) {
         >
             <TextInput
                 style={styles.inputField}
-                value={task} 
+                value={task}
                 onChangeText={text => setTask(text)}
                 placeholder={'Write a task'}
                 placeholderTextColor={'#fff'} />

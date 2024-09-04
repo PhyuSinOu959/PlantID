@@ -14,21 +14,21 @@ const TopTabNav = () => {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
-          headerRight: () => (
-            <TouchableOpacity style={styles.search} onPress={()=>navigation.navigate('Cart')} > 
-            <Icon name="shopping-cart" size={20} color="black" />
-            </TouchableOpacity>
-          ),
+            headerRight: () => (
+                <TouchableOpacity style={styles.search} onPress={() => navigation.navigate('Cart')} >
+                    <Icon name="shopping-cart" size={20} color="black" />
+                </TouchableOpacity>
+            ),
         });
-      }, [navigation]);
+    }, [navigation]);
 
     return (
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
-                tabBarScrollEnabled: true, 
+                tabBarScrollEnabled: true,
                 tabBarActiveTintColor: 'green',
-                tabBarPressColor:'grey',
+                tabBarPressColor: 'grey',
                 tabBarLabelStyle: { fontSize: 12 },
                 // tabBarItemStyle: { width: 110 },
                 tabBarIndicatorStyle: {
@@ -38,15 +38,15 @@ const TopTabNav = () => {
             }}
             sceneContainerStyle={{ backgroundColor: "#B6E2D3" }}
         >
-            <Tab.Screen 
-                name="Home" 
-                component={ScreenA} 
-                options={{ 
+            <Tab.Screen
+                name="Home"
+                component={ScreenA}
+                options={{
                     tabBarLabel: 'Home',
-                     }} />
+                }} />
             <Tab.Screen name="Profile" component={ScreenB} options={{ tabBarLabel: 'Profile' }} />
             <Tab.Screen name="Setting" component={ScreenC} options={{ tabBarLabel: 'Setting' }} />
-            
+
         </Tab.Navigator>
     );
 }

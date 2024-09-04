@@ -3,9 +3,11 @@ import { Keyboard, View, Text, ScrollView, StyleSheet } from "react-native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TaskInputField from "./Todolist/TaskInputField";
 import TaskItem from "./Todolist/TaskItem";
+import { useTranslation } from 'react-i18next';
 
 export default function ScreenB() {
   const [tasks, setTasks] = useState([]);
+  const { t, i18n } = useTranslation();
 
   const addTask = (task) => {
     if (task == null) return;
@@ -19,7 +21,7 @@ export default function ScreenB() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Todo lists</Text>
+      <Text style={styles.heading}>{t('todoList')}</Text>
       <ScrollView style={styles.scrollView}>
         {
           tasks.map((task, index) => {

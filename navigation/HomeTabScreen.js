@@ -12,12 +12,12 @@ const Tab = createBottomTabNavigator();
 export default function HomeTabScreen() {
 
     return (
-        <Tab.Navigator 
+        <Tab.Navigator
             screenOptions={{
                 headerShown: false,
                 tabBarActiveTintColor: '#900',
                 tabBarInactiveTintColor: 'grey',
-                tabBarShowLabel: false, 
+                tabBarShowLabel: false,
                 tabBarHideOnKeyboard: true,
                 tabBarStyle: {
                     position: 'absolute',
@@ -27,33 +27,33 @@ export default function HomeTabScreen() {
                     borderRadius: 15,
                     height: 90,
                 },
-                
             }}>
-            <Tab.Screen 
-                name="home" 
-                component={HomeScreen} 
-                options= {{
-                    tabBarIcon: (props) => (<Icon name="home" size={30} style={{ color: props.color}}  />),
-                }}> 
+            <Tab.Screen
+                name="home"
+                component={HomeScreen}
+                // initialParams={nav, pop}
+                options={{
+                    tabBarIcon: (props) => (<Icon name="home" size={30} style={{ color: props.color }} />),
+                }}>
             </Tab.Screen>
-            <Tab.Screen 
-                name="camera" 
+            <Tab.Screen
+                name="camera"
                 component={AddPhoto}
-                options= {{
-                    tabBarIcon: (props) => (<Icon name="camera" size={30} style={{ color: props.color}} />)
-                }}>  
+                options={{
+                    tabBarIcon: (props) => (<Icon name="camera" size={30} style={{ color: props.color }} />)
+                }}>
             </Tab.Screen>
-            <Tab.Screen 
-                name="search" 
-                component={SearchScreen} 
-                options= {{
-                    tabBarIcon: (props) => (<Icon name="search" size={30} style={{ color: props.color}} />),
-                }}>  
+            <Tab.Screen
+                name="search"
+                component={SearchScreen}
+                options={{
+                    tabBarIcon: (props) => (<Icon name="search" size={30} style={{ color: props.color }} />),
+                }}>
             </Tab.Screen>
-            <Tab.Screen 
-                name="Garden" 
-                component={My_Garden} 
-                options= {{
+            <Tab.Screen
+                name="Garden"
+                component={My_Garden}
+                options={{
                     // headerShown: true,
                     // title: 'My Garden',
                     // headerTitleAlign: 'center',
@@ -62,8 +62,8 @@ export default function HomeTabScreen() {
                     //         fontSize: 20,
                     //         color: 'black',
                     //     },
-                    tabBarIcon: (props) => (<Icon name="pagelines" size={30} style={{ color: props.color}} />),
-                }}>  
+                    tabBarIcon: (props) => (<Icon name="pagelines" size={30} style={{ color: props.color }} />),
+                }}>
             </Tab.Screen>
         </Tab.Navigator>
     );
